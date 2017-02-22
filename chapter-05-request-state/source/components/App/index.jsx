@@ -9,6 +9,7 @@ import Nav from '../Nav';
 import * as selectors from '../../store/selectors';
 import * as actionCreators from '../../store/actions';
 import * as style from './style';
+import * as ku from '../../lib/ke-utils';
 
 class App extends Component {
   componentWillMount() {
@@ -16,6 +17,10 @@ class App extends Component {
   }
 
   render() {
+    // const { readNotesRequest } = this.props;
+    // ku.log('readNotesRequest', readNotesRequest);
+    // return (<h1>Hello</h1>);
+
     const { readNotesRequest } = this.props;
 
     switch (readNotesRequest.status) {

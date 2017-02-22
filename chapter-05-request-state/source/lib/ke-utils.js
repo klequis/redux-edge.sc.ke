@@ -12,7 +12,7 @@ const styles = [
 ].join(';');
 */
 
-const styleLog = [
+const styleFun = [
   'border: 1px solid #3E0E02',
   'color: white',
   'text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3)',
@@ -22,7 +22,7 @@ const styleLog = [
   'font-weight: bold',
 ].join(';');
 
-const styleFun = [
+const styleLog = [
   'border: 1px solid #3E0E02',
   'color: #00ced1',
   'text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3)',
@@ -88,6 +88,6 @@ module.exports = {
 
   logFunction(name) {
     //eslint-disable-next-line no-console
-    console.log("%c[fun] " + name + "()", styleFun);
+    console.log("%c[FUN] " + name + "()", styleFun);
   },
 };

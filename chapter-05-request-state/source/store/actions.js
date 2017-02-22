@@ -70,11 +70,28 @@ export const createRequestThunk = ({ request, key, start = [], success = [], fai
     failure,
   };
   ku.log('createRequestThunk.params', o);
-  const len = success.length;
-  ku.log('success.length', len);
-  len > 0 ? ku.log('success[0]', success[0]) : ku.log('no success 0');
-  len > 1 ? ku.log('success[1]', success[1]) : ku.log('no success 1');
-  len > 2 ? ku.log('success[2]', success[2]) : ku.log('no success 2');
+  // start
+  let len = start.length;
+  ku.log('start.length', start.length);
+  len > 0 ? ku.log('start[0]', start[0]) : '';
+  len > 1 ? ku.log('start[1]', start[1]) : '';
+  len > 2 ? ku.log('start[2]', start[2]) : '';
+  len > 3 ? ku.log('start[3]', start[3]) : '';
+  // Success
+  len = success.length;
+  ku.log('success.length', success.length);
+  len > 0 ? ku.log('success[0]', success[0]) : '';
+  len > 1 ? ku.log('success[1]', success[1]) : '';
+  len > 2 ? ku.log('success[2]', success[2]) : '';
+  len > 3 ? ku.log('success[3]', success[3]) : '';
+  // failure
+  len = failure.length;
+  ku.log('failure.length', failure.length);
+  len > 0 ? ku.log('failure[0]', failure[0]) : '';
+  len > 1 ? ku.log('failure[1]', failure[1]) : '';
+  len > 2 ? ku.log('failure[2]', failure[2]) : '';
+  len > 3 ? ku.log('failure[3]', failure[3]) : '';
+
   return (...args) => (dispatch) => {
     ku.log('...args', args);
     ku.log('dispatch', dispatch);
@@ -91,7 +108,7 @@ export const createRequestThunk = ({ request, key, start = [], success = [], fai
         failure.forEach((actionCreator) => dispatch(actionCreator(reason)));
         dispatch(markRequestFailed(reason, requestKey));
       });
-  };
+  };  // end return
 };
 
 export const updateNote = (content, id, timestamp = Date.now()) => ({
