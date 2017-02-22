@@ -92,7 +92,8 @@ export const createRequestThunk = ({ request, key, start = [], success = [], fai
   len > 2 ? ku.log('failure[2]', failure[2]) : '';
   len > 3 ? ku.log('failure[3]', failure[3]) : '';
 
-  return (...args) => (dispatch) => {
+  const tmp = (...args) => (dispatch) => {
+    ku.logFunction('tmp');
     ku.log('...args', args);
     ku.log('dispatch', dispatch);
     const requestKey = (typeof key === 'function') ? key(...args) : key;
@@ -109,6 +110,8 @@ export const createRequestThunk = ({ request, key, start = [], success = [], fai
         dispatch(markRequestFailed(reason, requestKey));
       });
   };  // end return
+  ku.log('return', tmp);
+  return tmp;
 };
 
 export const updateNote = (content, id, timestamp = Date.now()) => ({

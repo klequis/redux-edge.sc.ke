@@ -13,18 +13,18 @@ import * as ku from '../../lib/ke-utils';
 
 class App extends Component {
   componentWillMount() {
+    ku.logFunction('App.componentWillMount');
     this.props.requestReadNotes();
   }
 
   render() {
-    // const { readNotesRequest } = this.props;
-    // ku.log('readNotesRequest', readNotesRequest);
-    // return (<h1>Hello</h1>);
+    ku.logFunction('App.render');
 
     const { readNotesRequest } = this.props;
 
     switch (readNotesRequest.status) {
       case 'success':
+        ku.log('App.readNotesRequest.status', readNotesRequest.status);
         return (
           <div style={style.wrapper}>
             <Nav />
@@ -36,6 +36,7 @@ class App extends Component {
           </div>
         );
       case 'failure':
+        ku.log('App.readNotesRequest.status', readNotesRequest.status);
         return (
           <div style={style.notice}>
             {(readNotesRequest.error.message === 'Failed to fetch')
@@ -45,6 +46,7 @@ class App extends Component {
           </div>
         );
       default:
+        ku.log('App.readNotesRequest.status', readNotesRequest.status);
         return (
           <div style={style.notice}>
             Loading...
